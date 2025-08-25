@@ -10,7 +10,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
@@ -27,9 +27,22 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
       continue-on-error: true
-    - name: Upload HTML report
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-report
-        path: specs/SpecificationByExample.Specifications/bin/Debug/net9.0/bdd-report.html  # include index.html and assets
-        if-no-files-found: error
+        
+  deploy-report:
+    needs: test
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Prepare report
+        run: |
+          mkdir report
+          cp specs/SpecificationByExample.Specifications/bin/Debug/net9.0/bdd-report.html report/report.html
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: report
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
