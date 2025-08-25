@@ -1,0 +1,60 @@
+﻿
+<div class="vibe-card">
+    <h2 class="title">Vibe Calculator</h2>
+
+    <div class="row inputs">
+        <input id="number1" type="number" step="any" placeholder="First number"
+               @bind-value="@_numberOne" @bind-value:event="oninput" class="num" />
+        <input id="number2" type="number" step="any" placeholder="Second number"
+               @bind-value="@_numberTwo" @bind-value:event="oninput" class="num" />
+    </div>
+
+    <div class="row ops" role="group" aria-label="operators">
+        <button id="button-add" type="button" class="op-btn" @onclick="() => SetOp('+')">+</button>
+        <button id="button-subtract" type="button" class="op-btn" @onclick="() => SetOp('-')">−</button>
+        <button id="button-multiply" type="button" class="op-btn" @onclick="() => SetOp('*')">×</button>
+        <button id="button-divide" type="button" class="op-btn" @onclick="() => SetOp('/')">÷</button>
+    </div>
+
+    <div class="row actions">
+        <button id="button-equals" class="equals" disabled="@(!_canCompute)" @onclick="Compute">=</button>
+    </div>
+
+    <div class="row result" aria-live="polite">
+        <span class="label">Result:</span>
+        <span id="value-label" class="value">@(_result ?? 0)</span>
+    </div>
+</div>
+
+@code {
+    private Calculator _calculator = new();
+
+    private int? _numberOne;
+    private int? _numberTwo;
+
+    private char? _operation;
+
+    private int? _result;
+    
+    private bool _canCompute => _operation.HasValue && _numberOne.HasValue && _numberTwo.HasValue;
+    
+    private void SetOp(char op)
+    {
+        _operation = op;
+    }
+
+    private void Compute()
+    {
+        if (!_canCompute)
+            return;
+
+        _result = _operation switch
+        {
+            '+' => _calculator.Number(_numberOne.Value).Add(_numberTwo.Value).Equals(),
+            '-' => _calculator.Number(_numberOne.Value).Subtract(_numberTwo.Value).Equals(),
+            '*' => _calculator.Number(_numberOne.Value).MultiplyBy(_numberTwo.Value).Equals(),
+            '/' => _calculator.Number(_numberOne.Value).DivideBy(_numberTwo.Value).Equals(),
+            _ => throw new Exception("Unknown operation")
+        };
+    }
+}

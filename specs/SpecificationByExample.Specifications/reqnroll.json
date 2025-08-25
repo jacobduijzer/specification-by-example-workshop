@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.reqnroll.net/reqnroll-config-latest.json",
+  "formatters": {
+    "html": {
+      "outputFilePath": "bdd-report.html"
+    }
+  },
+  "bindingAssemblies": [
+    {
+      "assembly": "SpecificationByExample.UnitTests"
+    },
+    {
+      "assembly": "SpecificationByExample.IntegrationTests"
+    },
+    {
+      "assembly": "SpecificationByExample.UITests"
+    }
+  ]
+}
