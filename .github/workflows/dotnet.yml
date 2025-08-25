@@ -31,5 +31,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: test-report
-        path: specs/SpecificationByExample.Specifications/bin/Release/net9.0/bdd-report.html  # include index.html and assets
+        path: specs/SpecificationByExample.Specifications/bin/Debug/net9.0/bdd-report.html  # include index.html and assets
         if-no-files-found: error
