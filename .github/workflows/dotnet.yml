@@ -26,3 +26,10 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+      continue-on-error: true
+    - name: Upload HTML report
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-report
+        path: specs/SpecificationByExample.Specifications/bin/Release/net9.0/bdd-report.html  # include index.html and assets
+        if-no-files-found: error
