@@ -18,6 +18,8 @@ jobs:
   test:
 
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright/dotnet:v1.49.0
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -28,21 +30,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 9.0.x
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-
-    - name: Install dependencies
-      run: npm ci
-
-    - name: Install Playwright browsers
-      run: npx playwright install --with-deps
-    # - name: Install dependencies
-    #   run: npm ci
-    # - name: Install playwright browsers
-    #   run: npx playwright install --with-deps
+        dotnet-version: 9.0.x    
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
