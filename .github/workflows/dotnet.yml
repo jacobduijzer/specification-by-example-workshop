@@ -39,7 +39,7 @@ jobs:
       run: |
           mkdir report
           cp specs/SpecificationByExample.Specifications/bin/Debug/net9.0/bdd-report.html report/index.html
-        cp specs/SpecificationByExample.Specifications/bin/Debug/net9.0/*.png report/:w
+        cp specs/SpecificationByExample.Specifications/bin/Debug/net9.0/*.png report/
         
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
