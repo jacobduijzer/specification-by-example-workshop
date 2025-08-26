@@ -28,6 +28,10 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
+    - uses: browser-actions/setup-chrome@v2
+      with:
+        chrome-version: 120
+        install-dependencies: true
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
