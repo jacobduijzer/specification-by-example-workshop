@@ -38,7 +38,7 @@ jobs:
     - name: Prepare report
       run: |
           mkdir report
-          cp specs/SpecificationByExample.Specifications/bin/Debug/net9.0/bdd-report.html report/report.html
+          cp specs/SpecificationByExample.Specifications/bin/Debug/net9.0/bdd-report.html report/index.html
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
       with:
