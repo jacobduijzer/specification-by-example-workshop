@@ -3,6 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3BBA5A84-A72E-40BD-90E2-49500AAA6433}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecificationByExample.Specifications", "specs\SpecificationByExample.Specifications\SpecificationByExample.Specifications.csproj", "{F15D5537-D884-44ED-97EE-180AD20EE95A}"
@@ -20,6 +21,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecificationByExample.UITests", "tests\SpecificationByExample.UITests\SpecificationByExample.UITests.csproj", "{DA211242-782E-4E9C-8395-A8E5E490ABBC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6D34B1D9-4523-48FD-BE16-84D07B0BCC2A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Specifications", "Specifications", "{BDAA7846-D1BA-4D87-A8A3-772E365C56AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,8 +61,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{047A6AA6-1292-4175-8A5A-A6DF0DF225D0} = {6D34B1D9-4523-48FD-BE16-84D07B0BCC2A}
-		{F15D5537-D884-44ED-97EE-180AD20EE95A} = {6D34B1D9-4523-48FD-BE16-84D07B0BCC2A}
 		{DA211242-782E-4E9C-8395-A8E5E490ABBC} = {6D34B1D9-4523-48FD-BE16-84D07B0BCC2A}
 		{CA543111-176E-4EBA-B9CA-14EA56E8098D} = {6D34B1D9-4523-48FD-BE16-84D07B0BCC2A}
+		{F15D5537-D884-44ED-97EE-180AD20EE95A} = {BDAA7846-D1BA-4D87-A8A3-772E365C56AF}
 	EndGlobalSection
 EndGlobal

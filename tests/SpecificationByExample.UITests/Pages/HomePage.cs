@@ -41,6 +41,9 @@ public class HomePage(IPageDependencyService pageDependencyService)
         return int.Parse(valueInput!);
     }
 
+    public async Task Screenshot(string name) =>
+        await pageDependencyService.Page.Result.ScreenshotAsync(new() { Path = $"{name}.png" });
+
     private ILocator Locate(string selector) => pageDependencyService.Page.Result.Locator(selector);
 
 

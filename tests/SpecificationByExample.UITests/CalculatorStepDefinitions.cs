@@ -14,6 +14,7 @@ public class CalculatorStepDefinitions(CustomWebApplicationFactory<Program> fixt
     public async Task GivenIHaveOpenedTheWebCalculator()
     {
         await _pageService.HomePage.GoToPageAsync(fixture.ServerAddress);
+        await _pageService.HomePage.Screenshot("OpenedCalculator");
     }
 
     [When("I enter {int} as the first number")]
