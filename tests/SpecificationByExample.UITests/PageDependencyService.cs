@@ -13,7 +13,7 @@ public class PageDependencyService : IPageDependencyService, IDisposable
     public PageDependencyService(Task<IPage> page)
     {
         Page = page;
-        Page.Result.SetDefaultTimeout(240000);
+        Page.Result.SetDefaultTimeout(3000);
     }
 
     public void Dispose()
